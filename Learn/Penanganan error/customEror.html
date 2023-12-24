@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>check recheck</title>
+</head>
+<body>
+    <p id="name"> Input nama</p>
+    <input type="text" id="nama">
+    <p id="age"> Input umur</p>
+    <input type="text" id="umur">
+
+<button type="button" onclick="check()">Submit</button>
+
+<script>
+    function check(){
+        const nama = document.getElementById("name")
+        const umur = document.getElementById("age")
+        nama.innerHTML = "";
+        umur.innerHTML = "";
+        let name = document.getElementById("nama").value;
+        let age = document.getElementById("age").value;
+        try {
+            if (name == "") throw "empty";
+            if (age == "") throw "empty";
+            if (isNaN(age) || age < 1) throw "not an number";   
+            umur = Number(umur);
+
+        } 
+        catch (error) {
+            nama.innerHTML = "Input is " + error;
+            umur.innerHTML = "Input is " + error;
+        }
+
+    }
+</script>
+</body>
+</html>
